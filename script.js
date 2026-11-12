@@ -4,7 +4,8 @@
 
 // Número do WhatsApp, só dígitos: 55 (Brasil) + DDD + número.
 // Exemplo: (11) 98705-0303  ->  "5511987050303"
-// Ao trocar, altere também o link do botão "Chamar no WhatsApp" no index.html.
+// Ao trocar, altere também os links "wa.me" do index.html (eles valem para quem
+// navega sem JavaScript).
 const WHATSAPP_NUMERO = "5511987050303";
 
 // Mensagem que já aparece escrita quando o cliente abre a conversa.
@@ -15,11 +16,7 @@ const WHATSAPP_MENSAGEM =
 const WHATSAPP_MENSAGEM_SERVICO =
   "Olá! Vi o site da DRV Portões Automáticos e gostaria de um orçamento de ";
 
-// Contatos opcionais. Deixe "" para não mostrar; preenchidos, aparecem na seção Contato.
-const TELEFONE_FIXO = "";   // exemplo: "(11) 5031-3262"
-const EMAIL = "";           // exemplo: "contato@drvportoes.com.br"
-const ENDERECO = "";        // exemplo: "Rua Exemplo, 123 – São Paulo – SP"
-const HORARIO = "";         // exemplo: "Segunda a sexta, das 8h às 18h"
+// Telefone fixo, e-mail, endereço e horário ficam escritos no rodapé do index.html.
 
 /* ========================================================== */
 
@@ -44,24 +41,6 @@ const telefone =
   "(" + numeroLocal.slice(0, 2) + ") " + numeroLocal.slice(2, -4) + "-" + numeroLocal.slice(-4);
 
 document.querySelectorAll("[data-telefone]").forEach((el) => (el.textContent = telefone));
-
-
-// Contatos opcionais: só aparecem quando preenchidos na configuração
-const opcionais = {
-  telefone: TELEFONE_FIXO && { texto: TELEFONE_FIXO, link: "tel:+55" + TELEFONE_FIXO.replace(/\D/g, "") },
-  email: EMAIL && { texto: EMAIL, link: "mailto:" + EMAIL },
-  endereco: ENDERECO && { texto: ENDERECO },
-  horario: HORARIO && { texto: HORARIO },
-};
-
-document.querySelectorAll("[data-opcional]").forEach((item) => {
-  const dado = opcionais[item.dataset.opcional];
-  if (!dado) return;
-  const alvo = item.querySelector("a, span");
-  alvo.textContent = dado.texto;
-  if (dado.link) alvo.href = dado.link;
-  item.hidden = false;
-});
 
 
 // Ao rolar: cabeçalho fica sólido e o botão flutuante aparece
