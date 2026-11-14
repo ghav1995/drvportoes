@@ -27,10 +27,13 @@ const raiz = document.documentElement;
 
 // Links do WhatsApp: todo elemento com o atributo data-whatsapp.
 // Com data-assunto, a mensagem já cita o serviço.
-document.querySelectorAll("[data-whatsapp]").forEach((link) => {
-  const assunto = link.dataset.assunto;
+function linkWhatsapp(assunto) {
   const mensagem = assunto ? WHATSAPP_MENSAGEM_SERVICO + assunto + "." : WHATSAPP_MENSAGEM;
-  link.href = "https://wa.me/" + WHATSAPP_NUMERO + "?text=" + encodeURIComponent(mensagem);
+  return "https://wa.me/" + WHATSAPP_NUMERO + "?text=" + encodeURIComponent(mensagem);
+}
+
+document.querySelectorAll("[data-whatsapp]").forEach((link) => {
+  link.href = linkWhatsapp(link.dataset.assunto);
   link.target = "_blank";
   link.rel = "noopener";
 });
@@ -116,6 +119,139 @@ if ("IntersectionObserver" in window && !semMovimento) {
   animados.forEach((el) => observer.observe(el));
 } else {
   animados.forEach((el) => el.classList.add("is-visible"));
+}
+
+
+// Showroom: fotos e vídeos abrem em tela cheia, com setas para passar de um ao outro.
+// O vídeo só começa a ser baixado quando o cliente toca nele, e o download para ao fechar.
+// Sem JavaScript, cada item é um link comum para o arquivo.
+const itensShowroom = Array.from(document.querySelectorAll("[data-lightbox]"));
+const telaCheia = document.getElementById("lightbox");
+
+// Até quanto a foto ou o vídeo pode ser ampliado além do tamanho original
+const AMPLIACAO_MAXIMA = 1.3;
+
+if (itensShowroom.length && telaCheia && typeof telaCheia.showModal === "function") {
+  const palco = telaCheia.querySelector(".lb-stage");
+  const titulo = telaCheia.querySelector(".lb-title strong");
+  const subtitulo = telaCheia.querySelector(".lb-title span");
+  const botaoOrcamento = telaCheia.querySelector(".lb-cta");
+  let atual = 0;
+
+  function ajustarTamanho() {
+    const midia = palco.firstElementChild;
+    if (!midia) return;
+    const largura = Number(midia.dataset.w);
+    const altura = Number(midia.dataset.h);
+    const escala = Math.min(
+      (palco.clientWidth - 32) / largura,
+      palco.clientHeight / altura,
+      AMPLIACAO_MAXIMA
+    );
+    midia.style.width = Math.round(largura * escala) + "px";
+    midia.style.height = Math.round(altura * escala) + "px";
+  }
+
+  function esvaziarPalco() {
+    const video = palco.querySelector("video");
+    if (video) {
+      // Interrompe o download do vídeo
+      video.pause();
+      video.removeAttribute("src");
+      video.load();
+    }
+    palco.replaceChildren();
+  }
+
+  function mostrar(indice) {
+    atual = (indice + itensShowroom.length) % itensShowroom.length;
+    const item = itensShowroom[atual];
+    const capa = item.querySelector("img");
+    const legenda = item.querySelector(".tile-cap");
+    let midia;
+
+    esvaziarPalco();
+
+    if (item.dataset.lightbox === "video") {
+      midia = document.createElement("video");
+      midia.poster = capa.currentSrc || capa.src;
+      midia.controls = true;
+      midia.loop = true;
+      midia.muted = true;
+      midia.playsInline = true;
+      midia.autoplay = true;
+      midia.setAttribute("controlslist", "nodownload noplaybackrate");
+      midia.disablePictureInPicture = true;
+      midia.src = item.href;
+    } else {
+      midia = document.createElement("img");
+      midia.alt = capa.alt;
+      midia.src = item.href;
+    }
+
+    midia.className = "lb-media";
+    midia.dataset.w = item.dataset.w;
+    midia.dataset.h = item.dataset.h;
+    palco.appendChild(midia);
+
+    titulo.textContent = legenda.querySelector("strong").textContent;
+    subtitulo.textContent = legenda.querySelector("span") ? legenda.querySelector("span").textContent : "";
+    botaoOrcamento.href = linkWhatsapp(item.dataset.assunto);
+    ajustarTamanho();
+  }
+
+  itensShowroom.forEach((item, indice) => {
+    item.addEventListener("click", (e) => {
+      e.preventDefault();
+      telaCheia.showModal();
+      raiz.classList.add("lightbox-open");
+      mostrar(indice);
+    });
+  });
+
+  telaCheia.querySelector(".lb-close").addEventListener("click", () => telaCheia.close());
+  telaCheia.querySelector(".lb-prev").addEventListener("click", () => mostrar(atual - 1));
+  telaCheia.querySelector(".lb-next").addEventListener("click", () => mostrar(atual + 1));
+
+  // Toque fora da foto ou do vídeo fecha
+  palco.addEventListener("click", (e) => {
+    if (e.target === palco) telaCheia.close();
+  });
+
+  telaCheia.addEventListener("keydown", (e) => {
+    if (e.target.closest("video")) return;
+    if (e.key === "ArrowLeft") mostrar(atual - 1);
+    if (e.key === "ArrowRight") mostrar(atual + 1);
+  });
+
+  // Vale para o botão de fechar, a tecla Esc e o toque fora
+  telaCheia.addEventListener("close", () => {
+    esvaziarPalco();
+    raiz.classList.remove("lightbox-open");
+  });
+
+  window.addEventListener("resize", ajustarTamanho);
+
+  // No celular: deslizar o dedo para o lado troca de item. A faixa de baixo do
+  // vídeo fica de fora, porque ali está a barra de tempo.
+  let toqueX = null;
+  let toqueY = null;
+
+  palco.addEventListener("touchstart", (e) => {
+    const toque = e.touches[0];
+    const video = e.target.closest("video");
+    const naBarra = video && toque.clientY > video.getBoundingClientRect().bottom - 70;
+    toqueX = e.touches.length === 1 && !naBarra ? toque.clientX : null;
+    toqueY = toque.clientY;
+  }, { passive: true });
+
+  palco.addEventListener("touchend", (e) => {
+    if (toqueX === null) return;
+    const dx = e.changedTouches[0].clientX - toqueX;
+    const dy = e.changedTouches[0].clientY - toqueY;
+    toqueX = null;
+    if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 2) mostrar(atual + (dx < 0 ? 1 : -1));
+  }, { passive: true });
 }
 
 

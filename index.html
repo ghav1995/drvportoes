@@ -85,6 +85,8 @@
     <symbol id="i-beacon" viewBox="0 0 24 24"><path d="M7 17.5V13a5 5 0 0 1 10 0v4.5"/><path d="M4.5 17.5h15V21h-15z"/><path d="M12 2.5v2.2M4.3 5.8l1.6 1.6M19.7 5.8l-1.6 1.6"/></symbol>
     <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></symbol>
     <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M7 4.5v15l12.5-7.5z"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M5 5l14 14M19 5 5 19"/></symbol>
     <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 5-5.5 10.2-7.4 11.8a1 1 0 0 1-1.2 0C9.5 20.2 4 15 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></symbol>
   </svg>
 
@@ -96,10 +98,9 @@
         <span class="brand-sub">Portões<br>Automáticos</span>
       </a>
       <nav class="nav" aria-label="Principal">
+        <a href="#showroom">Showroom</a>
         <a href="#servicos">Serviços</a>
         <a href="#empresa">A empresa</a>
-        <a href="#trabalhos">Trabalhos</a>
-        <a href="#processo">Como funciona</a>
         <a href="#contato">Contato</a>
       </nav>
       <a class="btn btn-amber btn-sm header-cta" data-whatsapp href="https://wa.me/5511987050303" target="_blank" rel="noopener">
@@ -115,11 +116,10 @@
   <!-- Menu do celular -->
   <div class="menu" id="menu">
     <nav class="menu-links" aria-label="Menu">
-      <a href="#servicos"><span>01</span>Serviços</a>
-      <a href="#empresa"><span>02</span>A empresa</a>
-      <a href="#trabalhos"><span>03</span>Trabalhos</a>
-      <a href="#processo"><span>04</span>Como funciona</a>
-      <a href="#contato"><span>05</span>Contato</a>
+      <a href="#showroom"><span>01</span>Showroom</a>
+      <a href="#servicos"><span>02</span>Serviços</a>
+      <a href="#empresa"><span>03</span>A empresa</a>
+      <a href="#contato"><span>04</span>Contato</a>
     </nav>
     <a class="btn btn-amber" data-whatsapp href="https://wa.me/5511987050303" target="_blank" rel="noopener">
       <svg class="icon-fill" aria-hidden="true"><use href="#i-whatsapp"/></svg>
@@ -138,16 +138,16 @@
           <p class="kicker">Portões automáticos · São Paulo</p>
           <h1>Segurança e qualidade <em>desde 1995</em></h1>
           <p class="hero-lead">
-            Automatização, sistema anti-clonagem, serralheria e manutenção 24&nbsp;horas
-            para condomínios, prédios e residências em toda São Paulo.
+            Automatização, serralheria e manutenção 24&nbsp;horas para condomínios,
+            prédios e residências em toda São Paulo.
           </p>
           <div class="hero-actions">
             <a class="btn btn-amber btn-lg" data-whatsapp href="https://wa.me/5511987050303" target="_blank" rel="noopener">
               <svg class="icon-fill" aria-hidden="true"><use href="#i-whatsapp"/></svg>
               Solicitar orçamento gratuito
             </a>
-            <a class="link-arrow" href="#servicos">
-              Ver serviços
+            <a class="link-arrow" href="#showroom">
+              Ver showroom
               <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
             </a>
           </div>
@@ -260,76 +260,160 @@
       </div>
     </div>
 
+    <!-- Showroom: vídeos e fotos de portões. Os vídeos ficam em videos/ e as capas em images/.
+         Nenhum vídeo é baixado ao abrir a página: cada um só carrega quando o cliente toca para assistir.
+         Para incluir um item, copie um <li> inteiro e troque os arquivos, o tamanho (data-w, data-h) e os textos. -->
+    <section class="section section-dark showroom" id="showroom">
+      <div class="showroom-lines" aria-hidden="true"></div>
+      <div class="container">
+        <header class="section-head split reveal">
+          <div>
+            <p class="eyebrow"><span>01</span>Showroom</p>
+            <h2>Portões em <em>movimento</em></h2>
+          </div>
+          <p class="lead">Veja portões automatizados pela DRV funcionando em casas, prédios e condomínios de São Paulo.</p>
+        </header>
+
+        <ul class="show-main stagger">
+          <li class="show-feature">
+            <a class="tile" href="videos/basculante-residencial.mp4" data-lightbox="video" data-w="848" data-h="478" data-assunto="portão basculante" aria-label="Assistir ao vídeo: portão basculante em residência, 23 segundos">
+              <img src="images/video-basculante-residencial.jpg" width="848" height="478" loading="lazy" alt="">
+              <span class="tile-corners" aria-hidden="true"></span>
+              <span class="tile-time" aria-hidden="true">Vídeo · 0:23</span>
+              <span class="tile-play" aria-hidden="true"><svg class="icon-fill"><use href="#i-play"/></svg></span>
+              <span class="tile-cap"><strong>Portão basculante</strong><span>Residência</span></span>
+            </a>
+          </li>
+          <li class="show-tall">
+            <a class="tile" href="videos/basculante-condominio.mp4" data-lightbox="video" data-w="478" data-h="850" data-assunto="portão basculante para condomínio" aria-label="Assistir ao vídeo: portão basculante em condomínio, 25 segundos">
+              <img src="images/video-basculante-condominio.jpg" width="478" height="850" loading="lazy" alt="">
+              <span class="tile-corners" aria-hidden="true"></span>
+              <span class="tile-time" aria-hidden="true">Vídeo · 0:25</span>
+              <span class="tile-play" aria-hidden="true"><svg class="icon-fill"><use href="#i-play"/></svg></span>
+              <span class="tile-cap"><strong>Portão basculante</strong><span>Condomínio</span></span>
+            </a>
+          </li>
+        </ul>
+
+        <ul class="show-rail show-videos stagger" aria-label="Mais vídeos">
+          <li>
+            <a class="tile" href="videos/basculante-garagem.mp4" data-lightbox="video" data-w="848" data-h="478" data-assunto="portão basculante" aria-label="Assistir ao vídeo: portão basculante visto por dentro e por fora, 20 segundos">
+              <img src="images/video-basculante-garagem.jpg" width="848" height="478" loading="lazy" alt="">
+              <span class="tile-corners" aria-hidden="true"></span>
+              <span class="tile-time" aria-hidden="true">Vídeo · 0:20</span>
+              <span class="tile-play" aria-hidden="true"><svg class="icon-fill"><use href="#i-play"/></svg></span>
+              <span class="tile-cap"><strong>Portão basculante</strong><span>Por dentro e por fora</span></span>
+            </a>
+          </li>
+          <li>
+            <a class="tile" href="videos/deslizante-comercial.mp4" data-lightbox="video" data-w="960" data-h="540" data-assunto="portão deslizante" aria-label="Assistir ao vídeo: portão deslizante em imóvel comercial, 15 segundos">
+              <img src="images/video-deslizante-comercial.jpg" width="960" height="540" loading="lazy" alt="">
+              <span class="tile-corners" aria-hidden="true"></span>
+              <span class="tile-time" aria-hidden="true">Vídeo · 0:15</span>
+              <span class="tile-play" aria-hidden="true"><svg class="icon-fill"><use href="#i-play"/></svg></span>
+              <span class="tile-cap"><strong>Portão deslizante</strong><span>Imóvel comercial</span></span>
+            </a>
+          </li>
+          <li>
+            <a class="tile tile-top" href="videos/pivotante-predio.mp4" data-lightbox="video" data-w="478" data-h="850" data-assunto="portão pivotante" aria-label="Assistir ao vídeo: portão pivotante em prédio comercial, 19 segundos">
+              <img src="images/video-pivotante-predio.jpg" width="478" height="850" loading="lazy" alt="">
+              <span class="tile-corners" aria-hidden="true"></span>
+              <span class="tile-time" aria-hidden="true">Vídeo · 0:19</span>
+              <span class="tile-play" aria-hidden="true"><svg class="icon-fill"><use href="#i-play"/></svg></span>
+              <span class="tile-cap"><strong>Portão pivotante</strong><span>Prédio comercial</span></span>
+            </a>
+          </li>
+        </ul>
+
+        <ul class="show-rail show-photos stagger" aria-label="Fotos">
+          <li>
+            <a class="tile" href="images/portao-pivotante.jpg" data-lightbox="foto" data-w="760" data-h="510" data-assunto="portão pivotante" aria-label="Ampliar a foto: portão pivotante">
+              <img src="images/portao-pivotante.jpg" width="760" height="510" loading="lazy" alt="Portão pivotante de ferro trabalhado, com os automatizadores instalados">
+              <span class="tile-corners" aria-hidden="true"></span>
+              <span class="tile-cap"><strong>Portão pivotante</strong></span>
+            </a>
+          </li>
+          <li>
+            <a class="tile" href="images/portao-guilhotina.jpg" data-lightbox="foto" data-w="760" data-h="400" data-assunto="portão guilhotina" aria-label="Ampliar a foto: portão guilhotina">
+              <img src="images/portao-guilhotina.jpg" width="760" height="400" loading="lazy" alt="Portão guilhotina de gradil branco na entrada de uma garagem">
+              <span class="tile-corners" aria-hidden="true"></span>
+              <span class="tile-cap"><strong>Portão guilhotina</strong></span>
+            </a>
+          </li>
+          <li>
+            <a class="tile" href="images/portao-gradil.jpg" data-lightbox="foto" data-w="760" data-h="510" data-assunto="portão de gradil" aria-label="Ampliar a foto: portão de gradil">
+              <img src="images/portao-gradil.jpg" width="760" height="510" loading="lazy" alt="Portão de gradil cinza de duas folhas">
+              <span class="tile-corners" aria-hidden="true"></span>
+              <span class="tile-cap"><strong>Portão de gradil</strong></span>
+            </a>
+          </li>
+          <li>
+            <a class="tile" href="images/portao-garagem.jpg" data-lightbox="foto" data-w="760" data-h="510" data-assunto="portão de garagem" aria-label="Ampliar a foto: portão de garagem">
+              <img src="images/portao-garagem.jpg" width="760" height="510" loading="lazy" alt="Portão de garagem residencial em tom de madeira">
+              <span class="tile-corners" aria-hidden="true"></span>
+              <span class="tile-cap"><strong>Portão de garagem</strong></span>
+            </a>
+          </li>
+        </ul>
+
+        <div class="show-cta reveal">
+          <p>Quer um portão assim no seu imóvel?</p>
+          <a class="btn btn-amber btn-lg" data-whatsapp href="https://wa.me/5511987050303" target="_blank" rel="noopener">
+            <svg class="icon-fill" aria-hidden="true"><use href="#i-whatsapp"/></svg>
+            Solicitar orçamento gratuito
+          </a>
+        </div>
+      </div>
+    </section>
+
     <!-- Serviços -->
     <section class="section section-light" id="servicos">
       <div class="container">
         <header class="section-head reveal">
-          <p class="eyebrow"><span>01</span>Serviços</p>
-          <h2>Soluções completas para o seu <em>acesso</em></h2>
-          <p class="lead">
-            Do projeto à manutenção: instalamos, protegemos e mantemos o seu portão
-            funcionando, com a solução certa para o seu fluxo e o seu orçamento.
-          </p>
+          <p class="eyebrow"><span>02</span>Serviços</p>
+          <h2>Do projeto à <em>manutenção</em></h2>
         </header>
 
         <div class="services stagger">
           <article class="service">
-            <header class="service-top">
-              <span class="service-num">01</span>
-              <svg class="icon service-icon" aria-hidden="true"><use href="#i-gate"/></svg>
-            </header>
+            <svg class="icon service-icon" aria-hidden="true"><use href="#i-gate"/></svg>
             <h3>Automatização</h3>
-            <p>Automatizamos portões deslizantes, basculantes e pivotantes, com o motor e os acessórios adequados ao peso do portão e ao movimento do local.</p>
+            <p>Motores para portões deslizantes, basculantes e pivotantes.</p>
             <a class="service-link" data-whatsapp data-assunto="automatização de portão" href="https://wa.me/5511987050303" target="_blank" rel="noopener">Pedir orçamento <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
           </article>
 
           <article class="service">
-            <header class="service-top">
-              <span class="service-num">02</span>
-              <svg class="icon service-icon" aria-hidden="true"><use href="#i-shield"/></svg>
-            </header>
+            <svg class="icon service-icon" aria-hidden="true"><use href="#i-shield"/></svg>
             <h3>Sistema anti-clonagem</h3>
-            <p>Controles e receptores que impedem a cópia do sinal do seu portão, levando mais segurança para o condomínio ou a residência.</p>
+            <p>Controles e receptores que impedem a cópia do sinal.</p>
             <a class="service-link" data-whatsapp data-assunto="sistema anti-clonagem" href="https://wa.me/5511987050303" target="_blank" rel="noopener">Pedir orçamento <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
           </article>
 
           <article class="service">
-            <header class="service-top">
-              <span class="service-num">03</span>
-              <svg class="icon service-icon" aria-hidden="true"><use href="#i-lock"/></svg>
-            </header>
+            <svg class="icon service-icon" aria-hidden="true"><use href="#i-lock"/></svg>
             <h3>Fechaduras e eletroímãs</h3>
-            <p>Fechaduras acionadas remotamente, por bóton ou digital, e eletroímãs silenciosos, de baixa manutenção, para portas e portões de pedestres.</p>
+            <p>Acionamento remoto, por bóton ou por digital.</p>
             <a class="service-link" data-whatsapp data-assunto="fechaduras e eletroímãs" href="https://wa.me/5511987050303" target="_blank" rel="noopener">Pedir orçamento <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
           </article>
 
           <article class="service">
-            <header class="service-top">
-              <span class="service-num">04</span>
-              <svg class="icon service-icon" aria-hidden="true"><use href="#i-wrench"/></svg>
-            </header>
+            <svg class="icon service-icon" aria-hidden="true"><use href="#i-wrench"/></svg>
             <h3>Serralheria</h3>
-            <p>Chapas, cabos de aço, rolamentos, suportes e reparos de serralheria em geral, para o portão voltar a correr leve e alinhado.</p>
+            <p>Reparos, cabos de aço, rolamentos e suportes.</p>
             <a class="service-link" data-whatsapp data-assunto="serralheria" href="https://wa.me/5511987050303" target="_blank" rel="noopener">Pedir orçamento <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
           </article>
 
           <article class="service">
-            <header class="service-top">
-              <span class="service-num">05</span>
-              <svg class="icon service-icon" aria-hidden="true"><use href="#i-bars"/></svg>
-            </header>
+            <svg class="icon service-icon" aria-hidden="true"><use href="#i-bars"/></svg>
             <h3>Grades de ferro</h3>
-            <p>Grades e gradis de ferro sob medida para portões, muros e fachadas, unindo proteção e bom acabamento.</p>
+            <p>Sob medida para portões, muros e fachadas.</p>
             <a class="service-link" data-whatsapp data-assunto="grades de ferro" href="https://wa.me/5511987050303" target="_blank" rel="noopener">Pedir orçamento <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
           </article>
 
           <article class="service service-destaque">
-            <header class="service-top">
-              <span class="service-num">06</span>
-              <svg class="icon service-icon" aria-hidden="true"><use href="#i-clock"/></svg>
-            </header>
+            <svg class="icon service-icon" aria-hidden="true"><use href="#i-clock"/></svg>
             <h3>Manutenção 24 horas</h3>
-            <p>Atendimento inclusive em feriados e finais de semana, para o seu portão não ficar parado. Consulte as condições do plantão.</p>
+            <p>Inclusive em feriados e fins de semana. Consulte as condições do plantão.</p>
             <a class="service-link" data-whatsapp data-assunto="manutenção 24 horas" href="https://wa.me/5511987050303" target="_blank" rel="noopener">Falar com o plantão <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
           </article>
         </div>
@@ -338,18 +422,9 @@
         <div class="extras reveal">
           <p class="extras-title">Também instalamos</p>
           <ul class="extras-list">
-            <li>
-              <svg class="icon" aria-hidden="true"><use href="#i-barrier"/></svg>
-              <div><strong>Cancelas</strong><span>Organizam a entrada e a saída em locais de alto fluxo.</span></div>
-            </li>
-            <li>
-              <svg class="icon" aria-hidden="true"><use href="#i-interlock"/></svg>
-              <div><strong>Intertravamento</strong><span>Dois acessos que nunca abrem ao mesmo tempo, para mais segurança.</span></div>
-            </li>
-            <li>
-              <svg class="icon" aria-hidden="true"><use href="#i-beacon"/></svg>
-              <div><strong>Sinaleiros</strong><span>Aviso sonoro e luminoso para pedestres e motoristas na saída de veículos.</span></div>
-            </li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-barrier"/></svg>Cancelas</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-interlock"/></svg>Intertravamento</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-beacon"/></svg>Sinaleiros</li>
           </ul>
         </div>
 
@@ -360,29 +435,26 @@
             <p class="law-tag">Condomínios e prédios comerciais · São Paulo</p>
             <h3 id="lei-titulo">Seu portão está de acordo com a Lei nº 16.809?</h3>
             <p>
-              Na cidade de São Paulo, portões e cancelas automáticas pivotantes ou
-              basculantes não podem avançar para fora do alinhamento do imóvel ao abrir
-              ou fechar. A regra vale para condomínios e prédios comerciais; as casas
-              fora de condomínio ficaram isentas em 2019.
-            </p>
-          </div>
-          <div class="law-body">
-            <p class="law-sub">Quem tem um portão assim precisa adotar uma destas adequações:</p>
-            <ul class="law-list">
-              <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Sinalização sonora e luminosa antes da movimentação</li>
-              <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Sensor que detecta pessoas e veículos e interrompe o movimento</li>
-              <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Conversão para portão deslizante</li>
-              <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Abertura para dentro do imóvel</li>
-            </ul>
-            <p class="law-note">
-              O descumprimento gera intimação com prazo de 30 dias e, depois, multa de
-              R$&nbsp;250,00, reaplicada a cada 30 dias até a regularização (valor previsto
-              na lei, corrigido todo ano pelo IPCA).
+              Portões pivotantes ou basculantes não podem avançar para fora do
+              alinhamento do imóvel ao abrir ou fechar. Casas fora de condomínio são isentas.
             </p>
             <a class="btn btn-amber" data-whatsapp data-assunto="adequação do portão à Lei nº 16.809" href="https://wa.me/5511987050303" target="_blank" rel="noopener">
               <svg class="icon-fill" aria-hidden="true"><use href="#i-whatsapp"/></svg>
               Regularizar meu portão
             </a>
+          </div>
+          <div class="law-body">
+            <p class="law-sub">Adequações aceitas</p>
+            <ul class="law-list">
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Sinalização sonora e luminosa</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Sensor que interrompe o movimento</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Conversão para portão deslizante</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Abertura para dentro do imóvel</li>
+            </ul>
+            <p class="law-note">
+              Após intimação com prazo de 30 dias, multa de R$&nbsp;250,00, reaplicada a
+              cada 30 dias (valor da lei, corrigido todo ano pelo IPCA).
+            </p>
             <p class="law-source">
               Lei Municipal nº 16.809/2018, alterada pela Lei nº 17.114/2019.
               <a href="https://legislacao.prefeitura.sp.gov.br/leis/lei-16809-de-23-de-janeiro-de-2018" target="_blank" rel="noopener">Ver o texto da lei</a>
@@ -392,101 +464,30 @@
       </div>
     </section>
 
-    <!-- A empresa -->
+    <!-- A empresa, com um antes e depois de fiação -->
     <section class="section section-dark" id="empresa">
       <svg class="section-watermark" aria-hidden="true"><use href="#drv"/></svg>
       <div class="container about">
         <div class="about-copy reveal">
-          <p class="eyebrow"><span>02</span>A empresa</p>
-          <h2>Uma empresa familiar que cuida de portões há mais de <em>30 anos</em></h2>
+          <p class="eyebrow"><span>03</span>A empresa</p>
+          <h2>Empresa familiar, há mais de <em>30 anos</em> cuidando de portões</h2>
           <p>
-            A DRV Portões é uma empresa familiar de São Paulo, criada em 1995, que se
-            destaca no ramo de portões automáticos e dispositivos de segurança.
+            Criada em 1995, a DRV atende toda a cidade de São Paulo, de condomínios com
+            portaria virtual a residências, sempre com atendimento personalizado.
           </p>
-          <p>
-            Atendemos toda a cidade e todos os perfis, de condomínios com portaria
-            virtual de alto fluxo a residências, sempre com atendimento personalizado.
-          </p>
-          <a class="btn btn-outline" data-whatsapp href="https://wa.me/5511987050303" target="_blank" rel="noopener">
-            <svg class="icon-fill" aria-hidden="true"><use href="#i-whatsapp"/></svg>
-            Falar com a DRV
-          </a>
+          <div class="about-actions">
+            <a class="btn btn-amber btn-lg" data-whatsapp href="https://wa.me/5511987050303" target="_blank" rel="noopener">
+              <svg class="icon-fill" aria-hidden="true"><use href="#i-whatsapp"/></svg>
+              Solicitar orçamento gratuito
+            </a>
+            <p>Segunda a sexta, das 8h às 18h</p>
+          </div>
         </div>
 
-        <ul class="pillars stagger">
-          <li>
-            <svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>
-            <div><strong>Mais de 30 anos de mercado</strong><span>Experiência em portões automáticos desde 1995.</span></div>
-          </li>
-          <li>
-            <svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>
-            <div><strong>Atendimento personalizado</strong><span>Uma solução para cada perfil, do condomínio à residência.</span></div>
-          </li>
-          <li>
-            <svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>
-            <div><strong>Manutenção 24 horas</strong><span>Inclusive em feriados e finais de semana.</span></div>
-          </li>
-          <li>
-            <svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>
-            <div><strong>Orçamento gratuito</strong><span>Avaliamos o seu portão sem custo.</span></div>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Trabalhos: fotos de portões e um antes e depois de fiação. As fotos ficam em images/.
-         Para incluir uma foto na galeria, copie um <li> inteiro e troque o arquivo, o número e a legenda. -->
-    <section class="section section-light" id="trabalhos">
-      <div class="container">
-        <header class="section-head split reveal">
-          <div>
-            <p class="eyebrow"><span>03</span>Trabalhos</p>
-            <h2>Do residencial ao <em>condomínio</em></h2>
-          </div>
-          <p class="lead">
-            Automatizamos e mantemos portões pivotantes, basculantes e deslizantes em
-            casas, prédios e condomínios de São Paulo.
-          </p>
-        </header>
-
-        <ul class="gates stagger">
-          <li>
-            <figure class="gate-photo">
-              <img src="images/portao-pivotante.jpg" width="760" height="510" loading="lazy" alt="Portão pivotante de ferro trabalhado, com os automatizadores instalados">
-              <figcaption><span>01</span>Portão pivotante</figcaption>
-            </figure>
-          </li>
-          <li>
-            <figure class="gate-photo">
-              <img src="images/portao-guilhotina.jpg" width="760" height="400" loading="lazy" alt="Portão guilhotina de gradil branco na entrada de uma garagem">
-              <figcaption><span>02</span>Portão guilhotina</figcaption>
-            </figure>
-          </li>
-          <li>
-            <figure class="gate-photo">
-              <img src="images/portao-gradil.jpg" width="760" height="510" loading="lazy" alt="Portão de gradil cinza de duas folhas">
-              <figcaption><span>03</span>Portão de gradil</figcaption>
-            </figure>
-          </li>
-          <li>
-            <figure class="gate-photo">
-              <img src="images/portao-garagem.jpg" width="760" height="510" loading="lazy" alt="Portão de garagem residencial em tom de madeira">
-              <figcaption><span>04</span>Portão de garagem</figcaption>
-            </figure>
-          </li>
-        </ul>
-
         <!-- Antes e depois de um serviço de fiação -->
-        <div class="case-block">
-          <header class="case-head reveal">
-            <h3>Fiação comprometida? Nós resolvemos.</h3>
-            <p>
-              Fios soltos e emendas expostas colocam o motor e a segurança do portão em
-              risco. Refazemos a instalação com organização e acabamento.
-            </p>
-          </header>
-
-          <div class="case reveal">
+        <div class="case-block reveal">
+          <p class="case-title">Fiação refeita · antes e depois</p>
+          <div class="case">
             <figure class="case-item case-antes">
               <img src="images/antes-1.jpg" width="290" height="387" loading="lazy" alt="Antes: fios embolados e sem proteção ao lado do braço do portão">
               <figcaption>Antes</figcaption>
@@ -500,58 +501,34 @@
               <figcaption>Depois</figcaption>
             </figure>
           </div>
-
-          <ul class="case-notes stagger">
-            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Cabos protegidos em eletrodutos e canaletas</li>
-            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Emendas dentro de caixas de passagem</li>
-            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Acabamento limpo, sem fios aparentes</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- Como funciona -->
-    <section class="section section-dark" id="processo">
-      <div class="container">
-        <header class="section-head reveal">
-          <p class="eyebrow"><span>04</span>Como funciona</p>
-          <h2>Do primeiro contato ao portão <em>funcionando</em></h2>
-        </header>
-
-        <ol class="steps stagger">
-          <li class="step">
-            <span class="step-num" aria-hidden="true">01</span>
-            <h3>Chame no WhatsApp</h3>
-            <p>Conte o que você precisa: instalação, reparo ou manutenção.</p>
-          </li>
-          <li class="step">
-            <span class="step-num" aria-hidden="true">02</span>
-            <h3>Orçamento gratuito</h3>
-            <p>Avaliamos o seu portão e apresentamos a melhor solução, sem custo.</p>
-          </li>
-          <li class="step">
-            <span class="step-num" aria-hidden="true">03</span>
-            <h3>Execução</h3>
-            <p>Instalação organizada, com fiação protegida e testes de funcionamento.</p>
-          </li>
-          <li class="step">
-            <span class="step-num" aria-hidden="true">04</span>
-            <h3>Manutenção</h3>
-            <p>Seguimos cuidando para o seu portão funcionar todos os dias.</p>
-          </li>
-        </ol>
-
-        <div class="steps-cta reveal">
-          <a class="btn btn-amber btn-lg" data-whatsapp href="https://wa.me/5511987050303" target="_blank" rel="noopener">
-            <svg class="icon-fill" aria-hidden="true"><use href="#i-whatsapp"/></svg>
-            Solicitar orçamento gratuito
-          </a>
-          <p>Atendimento de segunda a sexta, das 8h às 18h.</p>
         </div>
       </div>
     </section>
 
   </main>
+
+  <!-- Tela cheia do showroom (aberta pelo script.js). A foto ou o vídeo entra em .lb-stage. -->
+  <dialog class="lightbox" id="lightbox" aria-label="Showroom">
+    <div class="lb-top">
+      <p class="lb-title"><strong></strong><span></span></p>
+      <button class="lb-btn lb-close" type="button" aria-label="Fechar">
+        <svg class="icon" aria-hidden="true"><use href="#i-close"/></svg>
+      </button>
+    </div>
+    <div class="lb-stage"></div>
+    <div class="lb-bottom">
+      <button class="lb-btn lb-prev" type="button" aria-label="Anterior">
+        <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+      </button>
+      <a class="btn btn-amber lb-cta" href="https://wa.me/5511987050303" target="_blank" rel="noopener">
+        <svg class="icon-fill" aria-hidden="true"><use href="#i-whatsapp"/></svg>
+        Quero um orçamento
+      </a>
+      <button class="lb-btn lb-next" type="button" aria-label="Próximo">
+        <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+      </button>
+    </div>
+  </dialog>
 
   <!-- Rodapé com os contatos. Os links de WhatsApp funcionam mesmo sem JavaScript.
        Para trocar o número do WhatsApp, altere WHATSAPP_NUMERO no script.js e os links wa.me deste arquivo. -->
@@ -612,10 +589,9 @@
 
       <div class="footer-bottom">
         <nav class="footer-links" aria-label="Rodapé">
+          <a href="#showroom">Showroom</a>
           <a href="#servicos">Serviços</a>
           <a href="#empresa">A empresa</a>
-          <a href="#trabalhos">Trabalhos</a>
-          <a href="#processo">Como funciona</a>
           <a href="#inicio">Voltar ao topo</a>
         </nav>
         <p class="footer-copy">© <span id="ano">2026</span> DRV Portões Automáticos · Desde 1995 · São Paulo – SP</p>
