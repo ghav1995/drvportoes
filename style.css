@@ -1006,92 +1006,32 @@ h1 em, h2 em { font-style: normal; }
   position: relative;
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: clamp(40px, 6vw, 84px);
+  gap: 4px clamp(40px, 6vw, 84px);
 }
 
 @media (min-width: 960px) {
-  .about { grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr); align-items: center; }
+  .about { grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr); align-items: end; }
 }
 
-.about-copy p:not(.eyebrow) {
+.about-side > p {
   max-width: 560px;
   margin-top: 20px;
   font-size: 1.12rem;
   color: var(--on-dark-muted);
 }
 
-.about-copy .about-actions {
+.about-actions {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 14px 26px;
-  margin-top: 34px;
+  margin-top: 30px;
 }
 
-.about-copy .about-actions p { margin: 0; font-size: 1rem; }
+.about-actions p { color: var(--on-dark-muted); }
 
 @media (max-width: 520px) {
   .about-actions .btn { width: 100%; }
-}
-
-/* Antes e depois de um serviço de fiação */
-.case-title {
-  margin-bottom: 14px;
-  font-family: var(--font-display);
-  font-size: .92rem;
-  font-weight: 600;
-  letter-spacing: .24em;
-  text-transform: uppercase;
-  color: var(--steel-200);
-}
-
-.case {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px;
-}
-
-.case-item {
-  position: relative;
-  overflow: hidden;
-  background: var(--navy-800);
-}
-
-.case-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.case-antes { aspect-ratio: 1; }
-.case-depois { grid-column: 1 / -1; aspect-ratio: 762 / 425; }
-
-.case-item figcaption {
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding: 7px 14px 6px;
-  font-family: var(--font-display);
-  font-size: .92rem;
-  font-weight: 700;
-  letter-spacing: .22em;
-  text-transform: uppercase;
-  color: var(--white);
-  background: var(--navy-800);
-}
-
-.case-depois figcaption { color: var(--navy-950); background: var(--amber); }
-
-/* Cantoneira amarela no "depois" */
-.case-depois::after {
-  content: "";
-  position: absolute;
-  right: 12px;
-  bottom: 12px;
-  width: 34px;
-  height: 34px;
-  border-right: 3px solid var(--amber);
-  border-bottom: 3px solid var(--amber);
 }
 
 /* ---------- Showroom ---------- */
